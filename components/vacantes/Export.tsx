@@ -1,12 +1,11 @@
 "use client";
 
-import React from "react";
 import { Download, FileCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { ColumnSettings } from "@/components/column-config";
 import { ConditionalRule, SortConfig } from "@/types"; // Importamos SortConfig
-import { generateExcel } from "@/lib/excel-utils";
+import { generateExcel } from "@/lib/excel-utils"
+import { t } from "@/lib/i18n";
 
 interface ExportProps {
   data: Record<string, unknown>[];
@@ -28,7 +27,7 @@ export const Export = ({ data, columns, rules, sortRules }: ExportProps) => {
       {/* ... JSX del Card ... */}
       <Button onClick={handleDownload} size="lg">
         <Download className="w-4 h-4 mr-2" />
-        Descargar Excel
+        {t("export.title")}
       </Button>
     </section>
   );

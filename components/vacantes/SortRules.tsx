@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ColumnSettings } from "@/components/column-config";
 import { SortConfig } from "@/types";
+import { t } from "@/lib/i18n";
 
 interface SortRulesProps {
   sortRules: SortConfig[];
@@ -41,9 +42,9 @@ export const SortRules = ({
     <section className="mb-8">
       <h2 className="text-sm font-bold uppercase tracking-wide text-foreground mb-4 flex items-center gap-2">
         <span className="w-6 h-6 rounded bg-primary text-primary-foreground flex items-center justify-center text-xs">
-          3
+          {t("sortRules.idSection")}
         </span>
-        Prioridad de Ordenación
+        {t("sortRules.title")}
       </h2>
       <Card className="border-2 border-accent">
         <CardContent className="p-6">
@@ -55,7 +56,7 @@ export const SortRules = ({
               >
                 <div className="flex flex-col items-center justify-center bg-background rounded px-2 py-1 min-w-10 border shadow-sm">
                   <span className="text-[10px] uppercase font-bold text-muted-foreground leading-none">
-                    Prior.
+                    {t("sortRules.prior")}
                   </span>
                   <span className="text-sm font-bold text-primary">
                     {index + 1}º
@@ -85,8 +86,8 @@ export const SortRules = ({
                       })
                     }
                   >
-                    <option value="asc">Ascendente (A-Z)</option>
-                    <option value="desc">Descendente (Z-A)</option>
+                    <option value="asc">{t("sortRules.orderASC")}</option>
+                    <option value="desc">{t("sortRules.orderDESC")}</option>
                   </select>
                 </div>
 
@@ -103,7 +104,7 @@ export const SortRules = ({
 
             {sortRules.length === 0 && (
               <div className="text-center py-4 border-2 border-dashed rounded-lg text-muted-foreground text-sm">
-                No hay reglas de ordenación aplicadas. Se usará el orden original.
+                {t("sortRules.noRules")}
               </div>
             )}
 
@@ -114,7 +115,7 @@ export const SortRules = ({
               className="w-full sm:w-auto border-dashed border-2 hover:border-primary transition-colors"
             >
               <Plus className="w-4 h-4 mr-2" />
-              Añadir nivel de orden (Ej: 1º Provincia, 2º Localidad)
+              {t("sortRules.addButton")}
             </Button>
           </div>
         </CardContent>

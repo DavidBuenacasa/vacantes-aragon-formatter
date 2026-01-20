@@ -1,0 +1,57 @@
+{
+  "header": {
+    "title": "Vacantes Aragón Formatter",
+    "subtitle": "Formatea tu Excel de vacantes educativas",
+    "githubButton": "Ver código en GitHub"
+  },
+  "uploadFile": {
+    "idSection": "1",
+    "title": "Subir archivo",
+    "subiendo": "Procesando archivo...",
+    "accion": "Arrastra tu archivo Excel aquí",
+    "formato": "o haz clic para seleccionar (.xlsx, .xls)"
+  },
+  "condicionalRules": {
+    "idSection": "2",
+    "title": "Reglas de resaltado",
+    "conditional": "Si",
+    "condition": "es igual a",
+    "action": "pintar de",
+    "example": "Ej: Zaragoza",
+    "targetCell": "Solo celda",
+    "targetRow": "Fila completa",
+    "addButton": "Añadir regla (Ej: Zaragoza o Jornada Completa)"
+  },
+  "sortRules": {
+    "idSection": "3",
+    "title": "Prioridad de Ordenación",
+    "prior": "PRIOR.",
+    "orderASC": "Ascendente (A-Z)",
+    "orderDESC": "Descendente (Z-A)",
+    "noRules": "No hay reglas de ordenación aplicadas. Se usará el orden original.",
+    "addButton": "Añadir nivel de orden (Ej: 1º Provincia, 2º Localidad)"
+  },
+  "configureOrder": {
+    "idSection": "4",
+    "title": "Configurar columnas",
+    "description": "Arrastra las columnas para reordenarlas. Configura colores y nombres para cada una.",
+    "subtitle": "Configuración de columnas",
+    "cardName": "Nombre a Mostrar",
+    "cardHeader": "Cabecera",
+    "cardCell": "Celdas",
+    "cardText": "Texto"
+  },
+  "preview": {
+    "idSection": "5",
+    "title": "Vista previa",
+    "subtitle": "Vista previa del resultado",
+    "description": "* Mostrando una previsualización de los datos con el orden y formato aplicados.",
+    "noCol": "No hay columnas visibles para mostrar",
+    "preview1": "Mostrando",
+    "preview2": "de",
+    "preview3": "Filas"
+  },
+  "export": {
+    "title": "Descargar Excel"
+  }
+}

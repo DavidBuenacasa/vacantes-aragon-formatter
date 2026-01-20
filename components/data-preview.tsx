@@ -3,6 +3,7 @@
 import type { ColumnSettings } from "./column-config"
 import { CENTERED_COLUMNS } from "./../lib/defaults";
 import { ConditionalRule } from "@/types";
+import { t } from "@/lib/i18n";
 
 interface DataPreviewProps {
   data: Record<string, unknown>[]
@@ -12,12 +13,13 @@ interface DataPreviewProps {
 
 export function DataPreview({ data, columns, rules }: DataPreviewProps) {
   const visibleColumns = columns.filter((col) => col.visible)
-  const previewData = data.slice(0, 20)
+  const limitData = 20
+  const previewData = data.slice(0, limitData)
 
   if (visibleColumns.length === 0) {
     return (
       <div className="border-2 border-accent rounded-md p-8 text-center">
-        <p className="text-muted-foreground">No hay columnas visibles para mostrar</p>
+        <p className="text-muted-foreground">{t("preview.noCol")}</p>
       </div>
     )
   }
@@ -105,9 +107,9 @@ export function DataPreview({ data, columns, rules }: DataPreviewProps) {
           </tbody>
         </table>
       </div>
-      {data.length > 20 && (
+      {data.length > limitData && (
         <div className="px-4 py-2 bg-muted text-center text-xs text-muted-foreground border-t border-accent">
-          Mostrando 20 de {data.length} filas
+          {t("preview.preview1")} {limitData} {t("preview.preview2")} {data.length} {t("preview.preview3")}
         </div>
       )}
     </div>

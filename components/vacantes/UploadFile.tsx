@@ -11,6 +11,7 @@ import {
   CENTERED_COLUMNS,
 } from "@/lib/defaults";
 import { ConditionalRule, SortConfig } from "@/types";
+import { t } from "@/lib/i18n";
 
 // Esta interfaz define qué "recibe" el componente
 interface UploadFileProps {
@@ -80,16 +81,16 @@ export function UploadFile({ onDataLoaded }: UploadFileProps) {
     <section className="mb-8">
       <h2 className="text-sm font-bold uppercase tracking-wide text-foreground mb-4 flex items-center gap-2">
         <span className="w-6 h-6 rounded bg-primary text-primary-foreground flex items-center justify-center text-xs">
-          1
+          {t("uploadFile.idSection")}
         </span>
-        Subir archivo
+        {t("uploadFile.title")}
       </h2>
       <Card className="border-2 border-accent">
         <CardContent className="p-6">
           <FileUpload onFileSelect={handleFileSelect} />
           {isProcessing && (
             <p className="text-sm text-muted-foreground mt-3 text-center animate-pulse">
-              Procesando archivo...
+              {t("uploadFile.subiendo")}
             </p>
           )}
         </CardContent>

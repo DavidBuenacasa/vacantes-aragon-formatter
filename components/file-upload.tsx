@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-
+import { t } from "@/lib/i18n";
 import { Upload } from "lucide-react"
 import { useCallback, useState } from "react"
 
@@ -87,10 +87,10 @@ export function FileUpload({ onFileSelect, acceptedTypes = ".xlsx,.xls" }: FileU
         ) : (
           <>
             <p className="text-sm font-semibold text-foreground uppercase tracking-wide">
-              Arrastra tu archivo Excel aquí
+              {t("uploadFile.accion")} 
             </p>
             <p className="text-xs text-muted-foreground">
-              o haz clic para seleccionar (.xlsx, .xls)
+              {t("uploadFile.formato")} 
             </p>
           </>
         )}

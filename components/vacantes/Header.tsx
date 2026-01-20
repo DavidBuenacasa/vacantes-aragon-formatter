@@ -1,11 +1,6 @@
 import { FileSpreadsheet } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  TooltipProvider,
-  TooltipTrigger,
-  TooltipContent,
-} from "@radix-ui/react-tooltip";
-import { Tooltip } from "recharts";
+import { t } from "@/lib/i18n";
 
 export function Header({}: {}) {
   return (
@@ -17,10 +12,10 @@ export function Header({}: {}) {
           </div>
           <div>
             <h1 className="text-xl font-bold text-foreground uppercase tracking-wide">
-              Vacantes Aragón Formatter
+              {t("header.title")}
             </h1>
             <p className="text-sm text-muted-foreground">
-              Formatea tu Excel de vacantes educativas
+              {t("header.subtitle")}
             </p>
           </div>
         </div>
@@ -28,7 +23,7 @@ export function Header({}: {}) {
           <Button
             variant="ghost"
             size="icon"
-            title="Ver código en GitHub" // Tooltip nativo del navegador
+            title={t("header.githubButton")} // Tooltip nativo del navegador
             className="w-12 h-12 rounded-full hover:bg-accent hover:text-primary hover:scale-110 active:scale-95 transition-all duration-200"
             asChild
           >

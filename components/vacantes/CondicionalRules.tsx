@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ColumnSettings } from "@/components/column-config";
 import { ConditionalRule } from "@/types";
+import { t } from "@/lib/i18n";
 
 interface ConditionalRulesProps {
   rules: ConditionalRule[];
@@ -43,9 +44,9 @@ export const ConditionalRules = ({
     <section className="mb-8">
       <h2 className="text-sm font-bold uppercase tracking-wide text-foreground mb-4 flex items-center gap-2">
         <span className="w-6 h-6 rounded bg-primary text-primary-foreground flex items-center justify-center text-xs">
-          2
+          {t("condicionalRules.idSection")}
         </span>
-        Reglas de resaltado
+        {t("condicionalRules.title")}
       </h2>
       <Card className="border-2 border-accent">
         <CardContent className="p-6">
@@ -55,7 +56,7 @@ export const ConditionalRules = ({
                 key={rule.id}
                 className="flex flex-wrap items-center gap-3 p-3 bg-muted rounded-lg transition-all border border-transparent hover:border-accent/50"
               >
-                <span className="text-sm font-medium">Si</span>
+                <span className="text-sm font-medium">{t("condicionalRules.conditional")}</span>
                 
                 <select
                   className="bg-background border rounded h-9 px-2 text-sm focus:ring-2 focus:ring-primary outline-none"
@@ -69,16 +70,16 @@ export const ConditionalRules = ({
                   ))}
                 </select>
 
-                <span className="text-sm font-medium">es igual a</span>
+                <span className="text-sm font-medium">{t("condicionalRules.condition")}</span>
                 
                 <input
                   className="bg-background border rounded h-9 px-3 text-sm flex-1 min-w-37.5 focus:ring-2 focus:ring-primary outline-none"
-                  placeholder="Ej: Zaragoza"
+                  placeholder={t("condicionalRules.example")}
                   value={rule.value}
                   onChange={(e) => updateRule(rule.id, { value: e.target.value })}
                 />
 
-                <span className="text-sm font-medium">pintar</span>
+                <span className="text-sm font-medium">{t("condicionalRules.action")}</span>
 
                 <div className="flex items-center gap-2 bg-background border rounded h-9 px-2">
                   <select
@@ -86,8 +87,8 @@ export const ConditionalRules = ({
                     value={rule.target}
                     onChange={(e) => updateRule(rule.id, { target: e.target.value as any })}
                   >
-                    <option value="row">Fila completa</option>
-                    <option value="cell">Solo celda</option>
+                    <option value="row">{t("condicionalRules.targetRow")}</option>
+                    <option value="cell">{t("condicionalRules.targetCell")}</option>
                   </select>
                   <div className="w-px h-4 bg-border mx-1" />
                   <input
@@ -115,7 +116,7 @@ export const ConditionalRules = ({
               className="w-full sm:w-auto border-dashed border-2 hover:border-primary transition-colors"
             >
               <Plus className="w-4 h-4 mr-2" />
-              Añadir regla (Ej: Zaragoza o Jornada Completa)
+              {t("condicionalRules.addButton")}
             </Button>
           </div>
         </CardContent>

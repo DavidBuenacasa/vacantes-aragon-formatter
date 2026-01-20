@@ -6,6 +6,7 @@ import { GripVertical, Eye, EyeOff } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { t } from "@/lib/i18n"
 
 export interface ColumnSettings {
   id: string
@@ -88,7 +89,7 @@ export function ColumnConfig({
               </div>
 
               <div>
-                <Label className="text-xs uppercase tracking-wide">Nombre a mostrar</Label>
+                <Label className="text-xs uppercase tracking-wide">{t("configureOrder.cardName")}</Label>
                 <Input
                   value={column.displayName}
                   onChange={(e) => updateColumn(column.id, { displayName: e.target.value })}
@@ -98,7 +99,7 @@ export function ColumnConfig({
 
               <div className="grid grid-cols-3 gap-3">
                 <div>
-                  <Label className="text-xs uppercase tracking-wide">Cabecera</Label>
+                  <Label className="text-xs uppercase tracking-wide">{t("configureOrder.cardHeader")}</Label>
                   <div className="mt-1 flex items-center gap-2">
                     <input
                       type="color"
@@ -114,7 +115,7 @@ export function ColumnConfig({
                   </div>
                 </div>
                 <div>
-                  <Label className="text-xs uppercase tracking-wide">Celdas</Label>
+                  <Label className="text-xs uppercase tracking-wide">{t("configureOrder.cardCell")}</Label>
                   <div className="mt-1 flex items-center gap-2">
                     <input
                       type="color"
@@ -130,7 +131,7 @@ export function ColumnConfig({
                   </div>
                 </div>
                 <div>
-                  <Label className="text-xs uppercase tracking-wide">Texto</Label>
+                  <Label className="text-xs uppercase tracking-wide">{t("configureOrder.cardText")}</Label>
                   <div className="mt-1 flex items-center gap-2">
                     <input
                       type="color"
