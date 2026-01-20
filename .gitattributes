@@ -1,0 +1,10 @@
+# Forzar que todos los archivos de texto se manejen con normalización automática
+* text=auto
+
+# Asegurar que archivos específicos siempre usen LF (ideal para evitar errores en Next.js/Vercel)
+*.js text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.css text eol=lf
