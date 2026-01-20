@@ -1,15 +1,7 @@
 "use client";
 
-import React from "react";
-
 import { useState } from "react";
-import XLSX from "xlsx-js-style";
-import { Download, Table } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
 import { ColumnConfig, type ColumnSettings } from "@/components/column-config";
-import { DataPreview } from "@/components/data-preview";
 import { DEFAULT_RULES, DEFAULT_SORT, DEFAULT_COLORS } from "@/lib/defaults";
 import { ConditionalRule, SortConfig } from "@/types";
 import { UploadFile } from "@/components/vacantes/UploadFile";
@@ -48,27 +40,27 @@ export default function VacantesAragonFormatter() {
         <UploadFile onDataLoaded={handleDataReady} />
         {columns.length > 0 && (
           <>
-            {/* Step 2.5: Reglas Condicionales */}
+            {/* Step 2: Reglas Condicionales */}
             <ConditionalRules
               rules={rules}
               columns={columns}
               onRulesChange={setRules}
             />
 
-            {/* Step 2.7: Ordenación */}
+            {/* Step 3: Ordenación */}
             <SortRules
               sortRules={sortRules}
               columns={columns}
               onSortRulesChange={setSortRules}
             />
 
-            {/* Step 2: Configure Order */}
+            {/* Step 4: Configure Order */}
             <ConfigureOrder columns={columns} onColumnsChange={setColumns} />
 
-            {/* Step 3: Preview */}
-            <Preview data={excelData} columns={columns} sortRules={sortRules} />
+            {/* Step 5: Preview */}
+            <Preview data={excelData} columns={columns} sortRules={sortRules} rules={rules} />
 
-            {/* Step 4: Export */}
+            {/* Step 6: Export */}
             <Export data={excelData} columns={columns} rules={rules} sortRules={sortRules}/>
           </>
         )}

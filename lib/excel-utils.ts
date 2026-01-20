@@ -1,6 +1,7 @@
 import XLSX from "xlsx-js-style";
 import { ColumnSettings } from "@/components/column-config";
 import { ConditionalRule, SortConfig } from "@/types";
+import { CENTERED_COLUMNS } from "./defaults";
 
 // Función centralizada de ordenación
 export const sortData = (data: any[], sortRules: SortConfig[]) => {
@@ -69,6 +70,7 @@ export const generateExcel = (
       const isHeader = R === 0;
       const colConfig = visibleColumns[C];
       const rowData = sortedData[R - 1];
+      const shouldCenter = CENTERED_COLUMNS.includes(colConfig.originalName);
 
       let bgColor = "#FFFFFF";
       let textColor = "000000";
@@ -102,7 +104,7 @@ export const generateExcel = (
           sz: 10,
         },
         alignment: {
-          horizontal: isHeader ? "center" : "left",
+          horizontal: isHeader || shouldCenter ? "center" : "left",
           vertical: "center",
         },
         border: {

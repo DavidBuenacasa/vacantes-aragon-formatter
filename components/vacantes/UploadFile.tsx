@@ -8,7 +8,7 @@ import {
   DEFAULT_SORT,
   DEFAULT_COLORS,
   COLUMNS_TO_HIDE,
-  COLUMNS_TO_CENTER,
+  CENTERED_COLUMNS,
 } from "@/lib/defaults";
 import { ConditionalRule, SortConfig } from "@/types";
 
@@ -48,7 +48,7 @@ export function UploadFile({ onDataLoaded }: UploadFileProps) {
             displayName: header,
             visible: !COLUMNS_TO_HIDE.includes(header),
             cellColor: DEFAULT_COLORS.cell,
-            align: COLUMNS_TO_CENTER.includes(header) ? "center" : "left",
+            align: CENTERED_COLUMNS.includes(header) ? "center" : "left",
             headerColor: DEFAULT_COLORS.header,
             textColor: DEFAULT_COLORS.text,
             order: index,

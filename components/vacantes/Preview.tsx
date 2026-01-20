@@ -5,15 +5,16 @@ import { Table } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DataPreview } from "@/components/data-preview";
 import { ColumnSettings } from "@/components/column-config";
-import { SortConfig } from "@/types";
+import { ConditionalRule, SortConfig } from "@/types";
 
 interface PreviewProps {
   data: Record<string, unknown>[];
   columns: ColumnSettings[];
   sortRules: SortConfig[];
+  rules: ConditionalRule[]
 }
 
-export const Preview = ({ data, columns, sortRules }: PreviewProps) => {
+export const Preview = ({ data, columns, sortRules , rules }: PreviewProps) => {
   // Memorizamos los datos ordenados para evitar cálculos innecesarios en cada render
   const sortedData = useMemo(() => {
     if (sortRules.length === 0) return data;
@@ -45,7 +46,7 @@ export const Preview = ({ data, columns, sortRules }: PreviewProps) => {
     <section className="mb-8">
       <h2 className="text-sm font-bold uppercase tracking-wide text-foreground mb-4 flex items-center gap-2">
         <span className="w-6 h-6 rounded bg-primary text-primary-foreground flex items-center justify-center text-xs">
-          3
+          5
         </span>
         Vista previa
       </h2>
@@ -58,7 +59,7 @@ export const Preview = ({ data, columns, sortRules }: PreviewProps) => {
         </CardHeader>
         <CardContent className="p-6">
           <div className="rounded-md border overflow-hidden">
-            <DataPreview data={sortedData} columns={columns} />
+            <DataPreview data={sortedData} columns={columns} rules={rules} />
           </div>
           <p className="text-[11px] text-muted-foreground mt-3 italic">
             * Mostrando una previsualización de los datos con el orden y formato aplicados.

@@ -45,7 +45,7 @@ export const ConfigureOrder = ({
     <section className="mb-8">
       <h2 className="text-sm font-bold uppercase tracking-wide text-foreground mb-4 flex items-center gap-2">
         <span className="w-6 h-6 rounded bg-primary text-primary-foreground flex items-center justify-center text-xs">
-          2
+          4
         </span>
         Configurar columnas
       </h2>
