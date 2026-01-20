@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Instalamos todas las dependencias (necesarias para el build)
-RUN npm ci
+RUN npm install
 
 # --- ETAPA 2: Construcción (Builder) ---
 FROM node:20-alpine AS builder
