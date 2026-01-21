@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { ArrowUpDown, ListOrdered, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -30,7 +29,7 @@ export const SortRules = ({
 
   const updateSortRule = (id: string, updates: Partial<SortConfig>) => {
     onSortRulesChange(
-      sortRules.map((r) => (r.id === id ? { ...r, ...updates } : r))
+      sortRules.map((r) => (r.id === id ? { ...r, ...updates } : r)),
     );
   };
 
@@ -66,7 +65,9 @@ export const SortRules = ({
                 <select
                   className="bg-background border rounded h-9 px-2 text-sm flex-1 focus:ring-2 focus:ring-primary outline-none"
                   value={rule.field}
-                  onChange={(e) => updateSortRule(rule.id, { field: e.target.value })}
+                  onChange={(e) =>
+                    updateSortRule(rule.id, { field: e.target.value })
+                  }
                 >
                   {columns.map((c) => (
                     <option key={c.id} value={c.originalName}>

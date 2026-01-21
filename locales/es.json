@@ -15,14 +15,16 @@
     "maps": {
     "idSection": "2",
     "title": "Funciones Distancia",
-    "enable": "Activar Funciones de Distancia",
-    "description": "Calcula distancias al centro en tu Excel usando Google Maps.",
+    "enable": "Calculo de Distancias con Google Maps",
     "apiKeyLabel": "Google Maps API Key",
     "apiKeyPlaceholder": "Introduce tu API Key...",
-    "addressLabel": "Direccion",
-    "addressPlaceholder": "Ej: Calle, Localidad, CP",
+    "apiKeyHelp": "¿Cómo obtener una clave?",
+    "addressLabel": "Tu dirección de origen",
+    "addressPlaceholder": "Ej: Av. Independencia, Zaragoza",
     "requiredError": "La API Key y la Columna de Dirección son obligatorias",
-    "clickToFix": "Haz clic para completar los datos de Maps"
+    "success": "¡Datos añadidos a la previsualización!",
+     "processing": "Calculando...",
+      "button": "Procesar y mostrar en tabla"
     
   },
   "condicionalRules": {

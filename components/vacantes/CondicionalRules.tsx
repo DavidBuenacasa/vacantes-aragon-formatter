@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import { Plus, Trash2, PaintBucket } from "lucide-react";
+import { Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ColumnSettings } from "@/components/column-config";
@@ -31,9 +30,7 @@ export const ConditionalRules = ({
   };
 
   const updateRule = (id: string, updates: Partial<ConditionalRule>) => {
-    onRulesChange(
-      rules.map((r) => (r.id === id ? { ...r, ...updates } : r))
-    );
+    onRulesChange(rules.map((r) => (r.id === id ? { ...r, ...updates } : r)));
   };
 
   const removeRule = (id: string) => {
@@ -56,12 +53,16 @@ export const ConditionalRules = ({
                 key={rule.id}
                 className="flex flex-wrap items-center gap-3 p-3 bg-muted rounded-lg transition-all border border-transparent hover:border-accent/50"
               >
-                <span className="text-sm font-medium">{t("condicionalRules.conditional")}</span>
-                
+                <span className="text-sm font-medium">
+                  {t("condicionalRules.conditional")}
+                </span>
+
                 <select
                   className="bg-background border rounded h-9 px-2 text-sm focus:ring-2 focus:ring-primary outline-none"
                   value={rule.field}
-                  onChange={(e) => updateRule(rule.id, { field: e.target.value })}
+                  onChange={(e) =>
+                    updateRule(rule.id, { field: e.target.value })
+                  }
                 >
                   {columns.map((c) => (
                     <option key={c.id} value={c.originalName}>
@@ -70,31 +71,45 @@ export const ConditionalRules = ({
                   ))}
                 </select>
 
-                <span className="text-sm font-medium">{t("condicionalRules.condition")}</span>
-                
+                <span className="text-sm font-medium">
+                  {t("condicionalRules.condition")}
+                </span>
+
                 <input
                   className="bg-background border rounded h-9 px-3 text-sm flex-1 min-w-37.5 focus:ring-2 focus:ring-primary outline-none"
                   placeholder={t("condicionalRules.example")}
                   value={rule.value}
-                  onChange={(e) => updateRule(rule.id, { value: e.target.value })}
+                  onChange={(e) =>
+                    updateRule(rule.id, { value: e.target.value })
+                  }
                 />
 
-                <span className="text-sm font-medium">{t("condicionalRules.action")}</span>
+                <span className="text-sm font-medium">
+                  {t("condicionalRules.action")}
+                </span>
 
                 <div className="flex items-center gap-2 bg-background border rounded h-9 px-2">
                   <select
                     className="bg-transparent text-sm outline-none cursor-pointer"
                     value={rule.target}
-                    onChange={(e) => updateRule(rule.id, { target: e.target.value as any })}
+                    onChange={(e) =>
+                      updateRule(rule.id, { target: e.target.value as any })
+                    }
                   >
-                    <option value="row">{t("condicionalRules.targetRow")}</option>
-                    <option value="cell">{t("condicionalRules.targetCell")}</option>
+                    <option value="row">
+                      {t("condicionalRules.targetRow")}
+                    </option>
+                    <option value="cell">
+                      {t("condicionalRules.targetCell")}
+                    </option>
                   </select>
                   <div className="w-px h-4 bg-border mx-1" />
                   <input
                     type="color"
                     value={rule.color}
-                    onChange={(e) => updateRule(rule.id, { color: e.target.value })}
+                    onChange={(e) =>
+                      updateRule(rule.id, { color: e.target.value })
+                    }
                     className="w-6 h-6 rounded-sm cursor-pointer border-none p-0 bg-transparent"
                   />
                 </div>

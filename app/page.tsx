@@ -20,12 +20,11 @@ export default function VacantesAragonFormatter() {
   const [sortRules, setSortRules] = useState<SortConfig[]>(DEFAULT_SORT);
 
   // Estado para la configuración de Mapas
-  const [mapsConfig, setMapsConfig] = useState({ 
-    enabled: false, 
-    apiKey: "", 
-    addressColumn: "" 
+  const [mapsConfig, setMapsConfig] = useState({
+    enabled: false,
+    apiKey: "",
+    originAddress: "",
   });
-
 
   const handleDataReady = (
     data: any[],
@@ -49,9 +48,13 @@ export default function VacantesAragonFormatter() {
         <UploadFile onDataLoaded={handleDataReady} />
         {columns.length > 0 && (
           <>
-            <MapsColumns 
-              config={mapsConfig} 
-              onChange={setMapsConfig} 
+            <MapsColumns
+              config={mapsConfig}
+              onChange={setMapsConfig}
+              data={excelData}
+              onDataProcessed={setExcelData}
+              columns={columns}
+              onColumnsChange={setColumns}
             />
 
             {/* Step 2: Reglas Condicionales */}
@@ -72,15 +75,20 @@ export default function VacantesAragonFormatter() {
             <ConfigureOrder columns={columns} onColumnsChange={setColumns} />
 
             {/* Step 5: Preview */}
-            <Preview data={excelData} columns={columns} sortRules={sortRules} rules={rules} />
+            <Preview
+              data={excelData}
+              columns={columns}
+              sortRules={sortRules}
+              rules={rules}
+            />
 
             {/* Step 6: Export */}
-            <Export 
-              data={excelData} 
-              columns={columns} 
-              rules={rules} 
+            <Export
+              data={excelData}
+              columns={columns}
+              rules={rules}
               sortRules={sortRules}
-              mapsConfig={mapsConfig} 
+              mapsConfig={mapsConfig}
             />
           </>
         )}

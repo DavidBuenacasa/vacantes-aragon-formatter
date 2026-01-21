@@ -60,7 +60,7 @@ export const ConfigureOrder = ({
             {t("configureOrder.subtitle")}
           </CardTitle>
         </CardHeader>
-        <CardContent className="p-6 max-h-125 overflow-y-auto">
+        <CardContent className="p-6 max-h-200 overflow-y-auto">
           <ColumnConfig
             columns={columns}
             onColumnsChange={onColumnsChange}

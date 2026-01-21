@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { Table } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DataPreview } from "@/components/data-preview";
@@ -12,10 +12,10 @@ interface PreviewProps {
   data: Record<string, unknown>[];
   columns: ColumnSettings[];
   sortRules: SortConfig[];
-  rules: ConditionalRule[]
+  rules: ConditionalRule[];
 }
 
-export const Preview = ({ data, columns, sortRules , rules }: PreviewProps) => {
+export const Preview = ({ data, columns, sortRules, rules }: PreviewProps) => {
   // Memorizamos los datos ordenados para evitar cálculos innecesarios en cada render
   const sortedData = useMemo(() => {
     if (sortRules.length === 0) return data;
