@@ -72,7 +72,7 @@ export function DataPreview({ data, columns, rules }: DataPreviewProps) {
                   key={rowIndex}
                   className="border-t border-accent transition-colors hover:bg-muted/30"
                   style={{
-                    backgroundColor: rowBgColor ? `${rowBgColor}44` : undefined,
+                    backgroundColor: rowBgColor || undefined,
                   }}
                   // Usamos "44" al final del hex para dar 25% de opacidad y que sea legible en web
                 >
@@ -105,7 +105,7 @@ export function DataPreview({ data, columns, rules }: DataPreviewProps) {
                           isCentered ? "text-center" : "text-left"
                         }`}
                         style={{
-                          backgroundColor: cellBgColor || undefined,
+                          backgroundColor: cellBgColor || rowBgColor || col.cellColor,
                           color: col.textColor,
                         }}
                       >

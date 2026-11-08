@@ -72,8 +72,9 @@ export const generateExcel = (
       const rowData = sortedData[R - 1];
       const shouldCenter = CENTERED_COLUMNS.includes(colConfig.originalName);
 
-      let bgColor = "#FFFFFF";
-      let textColor = "000000";
+      let bgColor = isHeader ? colConfig.headerColor : colConfig.cellColor;
+
+      let textColor = colConfig.textColor.replace("#", "");
 
       if (isHeader) {
         bgColor = colConfig.headerColor;
