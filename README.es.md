@@ -1,4 +1,4 @@
-**Español** | [English](README.en.md)
+**Español** | [English](README.md)
 
 # Vacantes Aragón Formatter
 Aplicación web para personalizar y organizar los listados Excel de vacantes educativas de Aragón. Permite elegir qué columnas mostrar, cambiar su presentación, destacar información con reglas de color y descargar un nuevo archivo Excel ordenado.
